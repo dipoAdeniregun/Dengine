@@ -133,7 +133,7 @@ namespace Dengine {
 		
 		switch (evnt.type) {
 			case SDL_QUIT:
-				exitGame();
+				m_currentScreen->setExit();
 				break;
 			case SDL_MOUSEMOTION:
 				inputManager.setMouseCoords(evnt.motion.x, evnt.motion.y);
