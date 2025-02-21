@@ -1,5 +1,6 @@
 #include "Timing.h"
 #include <sdl/SDL.h>
+#include <type_traits>
 
 namespace Dengine {
 	FPSLimiter::FPSLimiter(){}
@@ -70,4 +71,32 @@ namespace Dengine {
 			fps = 0.0f;
 		}
 	}
+
+	
+	
+	template <typename T>
+	Timer<T>::Timer()	
+	{
+		static_assert(std::is_same<std::micro, T>::value ||
+			std::is_same<std::milli, T>::value ||
+			std::is_same<std::nano, T>::value,
+			"Must pass std::micro, std::nano or std::milli");
+	}
+
+	template <typename T>
+	void Timer<T>::startTimer()
+	{
+		m_startTimer = clock::now();
+	}
+
+	template <typename T>
+	double Timer<T>::endTimer()
+	{
+		return (clock::now() - m_startTimer).count();
+	}
+
+	template class Timer<std::micro>;
+	template class Timer<std::milli>;
+	template class Timer<std::nano>;
+	
 }

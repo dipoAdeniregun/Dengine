@@ -1,4 +1,5 @@
 #pragma once
+#include <chrono>
 
 namespace Dengine{
 	class FPSLimiter {
@@ -17,5 +18,22 @@ namespace Dengine{
 		unsigned int startTicks;
 
 		void calculateFPS();
+	};
+
+	template <typename T>
+	class Timer {
+	public:
+		typedef std::chrono::steady_clock clock;
+		typedef std::chrono::duration<double, T> duration;
+
+		Timer();
+		~Timer() = default;
+
+		void startTimer();
+		double endTimer();
+		
+
+	private:
+		clock::time_point m_startTimer;
 	};
 }
