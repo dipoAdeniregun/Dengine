@@ -35,5 +35,6 @@ namespace Dengine{
 
 	private:
 		clock::time_point m_startTimer;
+		//duration m_duration;
 	};
 }

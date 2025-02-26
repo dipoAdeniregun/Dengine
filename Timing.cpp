@@ -92,7 +92,8 @@ namespace Dengine {
 	template <typename T>
 	double Timer<T>::endTimer()
 	{
-		return (clock::now() - m_startTimer).count();
+		duration elapsed = clock::now() - m_startTimer;
+		return elapsed.count();
 	}
 
 	template class Timer<std::micro>;
