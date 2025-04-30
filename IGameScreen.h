@@ -39,6 +39,7 @@ namespace Dengine {
 
 		void setParentGame(IMainGame* parentGame) { m_game = parentGame; }
 		void setRunning() { m_currentState = ScreenState::RUNNING; }
+		void setExit() { m_currentState = ScreenState::EXIT_APP; }
 		//void setScreenIdx(int screenIdx) { m_screenIdx = screenIdx; }
 
 		ScreenState getState() const { return m_currentState; }
