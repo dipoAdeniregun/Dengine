@@ -26,7 +26,7 @@ namespace Dengine {
 		ColorRGBA8(GLubyte R, GLubyte G, GLubyte B, GLubyte A)
 			: r(R), g(G), b(B), a(A) {}
 
-		ColorRGBA8(int hexcode) {
+		ColorRGBA8(unsigned int hexcode) {
 			r = (hexcode >> 24) & 0xff;
 			g = (hexcode >> 16) & 0xff;
 			b = (hexcode >> 8) & 0xff;

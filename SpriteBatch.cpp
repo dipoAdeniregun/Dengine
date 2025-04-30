@@ -196,6 +196,7 @@ namespace Dengine {
 	}
 
 	void SpriteBatch::init(){
+		
 		createVertexArray();
 	}
 
